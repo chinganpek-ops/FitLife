@@ -32,7 +32,8 @@
 # которое помогает людям следить за здоровьем.
 # Мобильной версии пока нет,
 # но инвесторы хотят увидеть работающий прототип уже завтра.
-import time, sys
+import time
+import sys
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -40,23 +41,16 @@ sys.stdout.reconfigure(encoding='utf-8')
 print('Приветствую тебя! Фитнес - это новая жизнь !')
 print('Как я могу к тебе обращаться ?')
 user_name = input()
+
 print('Какой у тебя возраст ?')
 user_age = int(input())
+
 print('Введи данные для предоставления рекомендаций')
 print('Какой у тебя вес в кг (пример:1.23) ?')
 user_weight = float(input())
+
 print('Какой у тебя рост в метрах (пример:1.23) ?')
 user_height = float(input())
-
-print(f'Твое имя: {user_name}, Возраст: {user_age}', end=', ')
-print(f'Вес: {user_weight} кг., Рост: {user_height} метра.')
-
-print('Делаю магию...')
-
-print('Расчитываю индекс массы тела (ИМТ)...')
-
-print('Собираю воду в стакан...')
-time.sleep(1)
 
 # рассчитывает ИМТ, и выдает рекомендации.
 bmi = user_weight / (user_height ** 2)
@@ -74,7 +68,6 @@ water_needed = water_ml / ML_IN_LITERS  # получаем литры
 print('Я изучил твои данные и вот что: ')
 print(f'Тебя зовут {user_name}, тебе {user_age}.')
 print(f'Твой ИМТ - {round(bmi, 1)}')
-print(f'Рекомендую пить воды: {round(water_needed,1)} л. в сутки.')
+print(f'Рекомендую пить воды: {round(water_needed, 1)} л. в сутки.')
 print('Фитнес - это новая жизнь !')
-
 print("Расчет окончен. Будьте здоровы!")
