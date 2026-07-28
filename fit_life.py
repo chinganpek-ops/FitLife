@@ -14,18 +14,36 @@ print('Приветствую тебя! Фитнес - это новая жиз�
 print('Как я могу к тебе обращаться ?')
 user_name = input()
 
-print('Какой у тебя возраст ?')
-user_age = int(input())
+print(f'{user_name} введи данные и я расчитаю индекс массы тела', end='')
+print(', и дам рекомендацию')
 
-print('Введи данные для предоставления рекомендаций')
-print('Какой у тебя вес в кг (пример:1.23) ?')
-user_weight = float(input())
+# для возраста сделаем защиту от буквенного ввода вместо целого числа
+while True:
+    try:
+        user_age = int(input('Какой у тебя возраст? '))
+        break
+    except ValueError:
+        print('Необходимо ввести целое число (пример: 123).')
 
-print('Какой у тебя рост в метрах (пример:1.23) ?')
-user_height = float(input())
+# для веса сделаем защиту от буквенного вода вместо целого или дробного числа
+while True:
+    try:
+        user_weight = float(input('Какой у тебя вес в кг (пример:1.23)? '))
+        break
+    except ValueError:
+        print('Необходимо ввести число (пример: 12.34).')
+
+# для роста сделаем защиту от буквенного ввода вместо целого или дробного числа
+while True:
+    try:
+        user_height = float(input('Какой у тебя рост в метрах (пример:1.23)? '))
+        break
+    except ValueError:
+        print('Необходимо ввести число (пример: 1.23).')
 
 # рассчитывает ИМТ, и выдает рекомендации.
 bmi = user_weight / (user_height ** 2)
+bmi = round(bmi, 1) # округляем до десяток
 
 # расчет воды
 
@@ -35,11 +53,12 @@ ML_IN_LITERS = 1000
 
 water_ml = user_weight * WATER_PER_KG   # мл
 water_needed = water_ml / ML_IN_LITERS  # получаем литры
+water_needed = round(water_needed, 1)   # округляем до десяток
 
 # Отчет по метрикам пользователя
 print('Я изучил твои данные и вот что: ')
 print(f'Тебя зовут {user_name}, тебе {user_age}.')
-print(f'Твой ИМТ - {round(bmi, 1)}')
-print(f'Рекомендую пить воды: {round(water_needed, 1)} л. в сутки.')
+print(f'Твой ИМТ - {bmi}')
+print(f'Рекомендую пить воды: {water_needed} л. в сутки.')
 print('Фитнес - это новая жизнь !')
 print("Расчет окончен. Будьте здоровы!")
