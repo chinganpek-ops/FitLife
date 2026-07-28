@@ -38,7 +38,7 @@ while True:
     try:
         user_height = float(input(
             'Какой у тебя рост в метрах (пример:1.23)? '
-            ))
+        ))
         break
     except ValueError:
         print('Необходимо ввести число (пример: 1.23).')
